@@ -5,16 +5,24 @@ import HeroImg from "../../../public/images/heroImg.png";
 import serviceImgOne from "../../../public/images/serviceImgOne.jpg";
 import serviceImgTwo from "../../../public/images/serviceImgTwo.jpg";
 import serviceImgThree from "../../../public/images/serviceImgThree.jpg";
-import woman from "../../../public/images/woman.png";
+import add from "../../../public/svgs/add_circle.svg";
+import minus from "../../../public/svgs/minus_circle.svg";
+import quote from "../../../public/svgs/quote.svg";
 
 import { useState } from "react";
 import Button from "@/Components/Button";
 
 const Home = () => {
+    //Open and close menu modal on small device
     const [isOpen, setIsOpen] = useState(false);
+    //Open and close faq's
+    const [isOpenFaqs, setIsOpenFaqs] = useState({});
+
+    //Function to handle Open and close Menu modal
     const handleIsOpenMenu = () => {
         setIsOpen(!isOpen);
     };
+
     // Dummy data to display services information
     const servicesData = [
         {
@@ -45,6 +53,43 @@ const Home = () => {
             reverse: false,
         },
     ];
+
+    //Dummy data to disply faq's
+    const FAQS = [
+        {
+            id: 1,
+            question: "Is there will be a lecture?",
+            response: "Yes it will be",
+        },
+        {
+            id: 2,
+            question: "Are you taking Student work as well?",
+            response: "Yes, we do, contact us for more info",
+        },
+        {
+            id: 3,
+            question: "Are you accepting partial payment?",
+            response: "No, we do not accept that",
+        },
+        {
+            id: 4,
+            question: "Are you accepting European and american client",
+            response: "Yes and No, we will see",
+        },
+        {
+            id: 5,
+            question: "Are you accepting European and american client",
+            response: "Yes and No, we will see",
+        },
+    ];
+
+    //Function to handle Open and close FAQ's
+    const toggleFaqs = (id) => {
+        setIsOpenFaqs((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id],
+        }));
+    };
     return (
         <>
             <main>
@@ -52,7 +97,7 @@ const Home = () => {
                 <header className="w-full h-fit bg-white px-4 relative shadow-sm">
                     <div className="container h-14 bg-white flex justify-between items-center lg:h-20">
                         <Link>
-                            <span className="font-poppins text-sm sm:text-base">
+                            <span className="font-poppins text-sm sm:text-base md:text-2xl">
                                 Kayor{" "}
                                 <small className="uppercase text-blue-700 font-bold">
                                     Group
@@ -192,76 +237,324 @@ const Home = () => {
                     </div>
                 </section>
                 {/* Form section */}
-                <section className="w-full bg-gray-100">
-                    <div className="container ">
-                        <div className="lg:flex lg:justify-center lg:py-10">
-                            <div className="mx-auto w-72 lg:w-96">
-                                <img
-                                    className="w-full h-full object-cover object-center"
-                                    src={woman}
-                                    alt="A sitting woman"
-                                />
-                            </div>
-                            <form className="mx-auto w-72 flex flex-col justify-center items-start h-fit py-2 sm:w-[500px]">
-                                <div className="mb-10 ">
-                                    <h2 className="text-3xl text-center font-bold text-gray-950">
-                                        Contact Us
-                                    </h2>
-                                </div>
-                                <div className="w-72 mx-auto flex flex-col justify-center gap-4  sm:w-full">
-                                    <div className="sm:flex sm:justify-center sm:w-full sm:gap-3">
-                                        <div className="flex flex-col sm:w-full">
-                                            <label
-                                                className="block text-sm text-gray-700 mb-2 w-full"
-                                                htmlFor="name"
-                                            >
-                                                Name
-                                            </label>
-                                            <input
-                                                className="border-gray-50 block w-full rounded-lg text-sm py-4 pl-4 text-gray-500 font-extralight"
-                                                type="text"
-                                                name="name"
-                                                id="name"
-                                                placeholder="Enter your name here"
-                                            />
-                                        </div>
-                                        <div className="flex flex-col sm:w-full">
-                                            <label
-                                                className="block text-sm text-gray-700 mb-2 w-full"
-                                                htmlFor="email"
-                                            >
-                                                Email
-                                            </label>
-                                            <input
-                                                className="border-gray-50 block w-full rounded-lg text-sm py-4 pl-4 text-gray-500 font-extralight"
-                                                type="email"
-                                                name="email"
-                                                id="email"
-                                                placeholder="Enter your email here"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col">
+                <section className="w-full bg-gray-50">
+                    <div className="container py-10">
+                        <div className="mb-20">
+                            <h2 className="text-3xl text-center font-bold text-gray-950">
+                                Contact Us
+                            </h2>
+                        </div>
+                        <form className="mx-4 sm:mx-8 md:w-[600px] md:mx-auto">
+                            <div className="flex flex-col justify-center gap-4">
+                                <div className="sm:flex sm:justify-center sm:gap-3">
+                                    <div className="mb-3 flex flex-col sm:w-1/2">
                                         <label
                                             className="block text-sm text-gray-700 mb-2 w-full"
-                                            htmlFor="message"
+                                            htmlFor="name"
                                         >
-                                            Message
+                                            Name
                                         </label>
-                                        <textarea
-                                            rows="9"
+                                        <input
                                             className="border-gray-50 block w-full rounded-lg text-sm py-4 pl-4 text-gray-500 font-extralight"
-                                            name="message"
-                                            id="message"
-                                            placeholder="Enter your message here"
-                                        ></textarea>
+                                            type="text"
+                                            name="name"
+                                            id="name"
+                                            placeholder="Enter your name here"
+                                        />
                                     </div>
+                                    <div className="mb-3 flex flex-col sm:w-1/2">
+                                        <label
+                                            className="block text-sm text-gray-700 mb-2 w-full"
+                                            htmlFor="email"
+                                        >
+                                            Email
+                                        </label>
+                                        <input
+                                            className="border-gray-50 block w-full rounded-lg text-sm py-4 pl-4 text-gray-500 font-extralight"
+                                            type="email"
+                                            name="email"
+                                            id="email"
+                                            placeholder="Enter your email here"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex flex-col">
+                                    <label
+                                        className="block text-sm text-gray-700 mb-2 w-full"
+                                        htmlFor="message"
+                                    >
+                                        Message
+                                    </label>
+                                    <textarea
+                                        rows="9"
+                                        className="border-gray-50 block w-full rounded-lg text-sm py-4 pl-4 text-gray-500 font-extralight"
+                                        name="message"
+                                        id="message"
+                                        placeholder="Enter your message here"
+                                    ></textarea>
+                                </div>
+                                <div className="">
+                                    <label
+                                        className="text-sm text-gray-700 mb-2 w-full flex gap-2 justify-start items-start"
+                                        htmlFor="checkbox"
+                                    >
+                                        <input
+                                            className="border-gray-50 block w-5 h-5 rounded-sm"
+                                            type="checkbox"
+                                            name="checkbox"
+                                            id="checkbox"
+                                            placeholder="Enter your email here"
+                                        />
+                                        <span>
+                                            I agree with the{" "}
+                                            <Link className="underline">
+                                                {" "}
+                                                Privacy policy and terms
+                                            </Link>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div>
                                     <Button btnText="Send" />
                                 </div>
-                            </form>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                {/* FAQ section */}
+                <section className="w-full bg-gray-50">
+                    <div className="container py-10 px-4 sm:px-8">
+                        <div className="mb-20">
+                            <h2 className="text-3xl text-center font-bold text-gray-950">
+                                FAQ's
+                            </h2>
+                            <p className="text-base text-center font-normal text-gray-600 my-3">
+                                Have questions? We're here to help.
+                            </p>
+                        </div>
+                        <div>
+                            {FAQS.map((faq) => {
+                                const { id, question, response } = faq;
+                                return (
+                                    <div
+                                        key={id}
+                                        className="lg:w-[700px] flex flex-col gap-4 mx-auto h-fit"
+                                    >
+                                        <div className="flex justify-between items-center z-50">
+                                            <div className="w-1/2 sm:w-2/3">
+                                                <h4 className="font-semibold text-lg">
+                                                    {question}
+                                                </h4>
+                                            </div>
+                                            <div className="flex w-1/6 justify-end">
+                                                <img
+                                                    onClick={() =>
+                                                        toggleFaqs(id)
+                                                    }
+                                                    className={`${
+                                                        isOpenFaqs[id]
+                                                            ? "hidden"
+                                                            : "block"
+                                                    } w-9 h-9 sm:w-7 sm:h-7 cursor-pointer`}
+                                                    src={add}
+                                                    alt="This an plus button to open FAQ's description"
+                                                />
+                                                <img
+                                                    onClick={() =>
+                                                        toggleFaqs(id)
+                                                    }
+                                                    className={`${
+                                                        isOpenFaqs[id]
+                                                            ? "block"
+                                                            : "hidden"
+                                                    } w-9 h-9 sm:w-7 sm:h-7 cursor-pointer`}
+                                                    src={minus}
+                                                    alt="This an plus button to open FAQ's description"
+                                                />
+                                            </div>
+                                        </div>
+                                        {isOpenFaqs[id] && (
+                                            <div
+                                                className={`${
+                                                    isOpenFaqs
+                                                        ? "block mt-0"
+                                                        : "hidden"
+                                                } h-fit duration-700 ease-in-out`}
+                                            >
+                                                <p className="text-base font-light text-gray-950">
+                                                    {response}
+                                                </p>
+                                            </div>
+                                        )}
+                                        <hr className="my-5" />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
+                {/* Section testimonial */}
+                <section className="w-full bg-gray-50">
+                    <div className="container py-10 px-4 sm:px-8">
+                        <div className="mb-20">
+                            <h2 className="text-3xl text-center font-bold text-gray-950">
+                                Testimonial
+                            </h2>
+                            <p className="text-base text-center font-normal text-gray-600 my-3">
+                                Have questions? We're here to help.
+                            </p>
+                        </div>
+                        <div>
+                            <figure className="max-w-screen-md mx-auto text-center">
+                                <img className="w-6" src={quote} alt="" />
+                                <blockquote>
+                                    <p className="text-2xl italic font-medium text-gray-900 dark:text-white">
+                                        "KayorGroup is just awesome. It contains
+                                        tons of predesigned components and pages
+                                        starting from login screen to complex
+                                        dashboard. Perfect choice for your next
+                                        SaaS application."
+                                    </p>
+                                </blockquote>
+                                <figcaption className="flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse">
+                                    <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-500 dark:divide-gray-700">
+                                        <cite className="pe-3 font-medium text-gray-900 dark:text-white">
+                                            Michael Gough
+                                        </cite>
+                                        <cite className="ps-3 text-sm text-gray-500 dark:text-gray-400">
+                                            CEO at Google
+                                        </cite>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+                {/* Foooter */}
+                <footer className="bg-white dark:bg-gray-900">
+                    <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+                        <div className="md:flex md:justify-between">
+                            <div className="mb-6 md:mb-0">
+                                <Link
+                                    href="https://flowbite.com/"
+                                    className="flex items-center"
+                                >
+                                    <span className="font-poppins text-sm sm:text-base md:text-2xl">
+                                        Kayor{" "}
+                                        <small className="uppercase text-blue-700 font-bold">
+                                            Group
+                                        </small>
+                                    </span>
+                                </Link>
+                            </div>
+                            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                                {/* <div>
+                                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                        Quick links
+                                    </h2>
+                                    <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                                        <li className="mb-4">
+                                            <Link
+                                                href="https://flowbite.com/"
+                                                className="hover:underline"
+                                            >
+                                                Flowbite
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="https://tailwindcss.com/"
+                                                className="hover:underline"
+                                            >
+                                                Tailwind CSS
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> */}
+                                <div>
+                                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                        Follow us
+                                    </h2>
+                                    <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                                        <li className="mb-4">
+                                            <Link
+                                                href="https://github.com/themesberg/flowbite"
+                                                className="hover:underline "
+                                            >
+                                                Linkedin
+                                            </Link>
+                                        </li>
+                                        <li className="mb-4">
+                                            <a
+                                                href="https://discord.gg/4eeurUVvTy"
+                                                className="hover:underline"
+                                            >
+                                                Facebook
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                href="https://discord.gg/4eeurUVvTy"
+                                                className="hover:underline"
+                                            >
+                                                Instagram
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                        Legal
+                                    </h2>
+                                    <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                                        <li className="mb-4">
+                                            <Link
+                                                href="#"
+                                                className="hover:underline"
+                                            >
+                                                Privacy Policy
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                href="#"
+                                                className="hover:underline"
+                                            >
+                                                Terms &amp; Conditions
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                        <div className="sm:flex sm:items-center sm:justify-between">
+                            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                                © 2024{" "}
+                                <a
+                                    href="https://flowbite.com/"
+                                    className="hover:underline"
+                                >
+                                    KayorGroup™
+                                </a>
+                                . All Rights Reserved.
+                            </span>
+                            <div className="flex mt-4 sm:justify-center sm:mt-0">
+                                <span className="mr-1 text-gray-500 text-sm">
+                                    {" "}
+                                    Build by
+                                </span>
+                                <a
+                                    href="https://kambatukebele.com/"
+                                    target="_blank"
+                                    className="text-blue-700 underline text-sm"
+                                >
+                                    KambaTukebele
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </main>
         </>
     );

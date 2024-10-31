@@ -3,7 +3,7 @@ import ArrowRight from "../../../public/svgs/arrow_right.svg";
 
 const Button = ({ btnText }) => {
     return (
-        <Link className="text-white bg-blue-700 w-[10.5rem] text-center py-3 rounded-lg hover:bg-blue-900 duration-300 ease-in-out flex justify-center items-center gap-4">
+        <Link className="text-white bg-blue-700 w-fit text-center px-6 py-3 rounded-lg hover:bg-blue-900 duration-300 ease-in-out flex justify-center items-center gap-4">
             <span className="block text-base font-medium font-poppins">
                 {btnText}
             </span>
