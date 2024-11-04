@@ -19,7 +19,6 @@ const ContactUs = () => {
         post(route("send_email.store"), {
             onError: (error) => {
                 alert("There is an error");
-                // window.scrollTo(0, scrollPosition);
             },
         });
     };
@@ -27,7 +26,7 @@ const ContactUs = () => {
 
     return (
         <>
-            <section className="w-full bg-gray-50">
+            <section className="w-full bg-gray-50" id="contactus">
                 <div className="container py-14">
                     <div className="mb-10 flex flex-col justify-center items-center">
                         <HTwo title="Contact Us" />

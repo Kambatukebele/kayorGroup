@@ -39,6 +39,12 @@ class HomeController extends Controller
     // }
 
     public function thank_you (){
+        if (!session('form_submitted')) {
+            return redirect('/');
+        }
+
+        // Remove the session variable to prevent revisits
+        session()->forget('form_submitted');
         return inertia("ThankYou");
     }
 }

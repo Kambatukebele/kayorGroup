@@ -5,7 +5,7 @@ import Underline from "./Underline";
 const Testimonials = () => {
     return (
         <>
-            <section className="w-full bg-blue-50">
+            <section className="w-full bg-blue-50" id="testimonial">
                 <div className="container py-10 px-4 sm:px-8">
                     <div className="mb-10 flex flex-col justify-center items-center">
                         <HTwo title="Testimonial" />

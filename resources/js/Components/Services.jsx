@@ -46,7 +46,7 @@ const Services = () => {
     ];
     return (
         <>
-            <section className="bg-white py-14 relative">
+            <section className="bg-white py-14 relative" id="services">
                 <div className="px-4 flex flex-col justify-center items-center mx-auto max-w-screen-xl">
                     <HTwo title="Services" />
                     <Underline />
@@ -103,7 +103,6 @@ const Services = () => {
                         </div>
                     );
                 })}
-                <div className="w-44 h-44 bg-blue-600 rounded-full absolute top-44 -left-32"></div>
             </section>
         </>
     );

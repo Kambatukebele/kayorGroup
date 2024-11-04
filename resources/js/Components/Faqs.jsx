@@ -137,7 +137,7 @@ const Faqs = () => {
 
     return (
         <>
-            <section className="w-full bg-white">
+            <section className="w-full bg-white" id="faqs">
                 <div className="container py-10 px-4 sm:px-8">
                     <div className="mb-20 flex flex-col justify-center items-center">
                         <HTwo title="FAQ's" />

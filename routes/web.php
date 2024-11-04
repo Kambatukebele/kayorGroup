@@ -24,9 +24,10 @@ Route::get('/cookie_policy', [HomeController::class, 'cookie']);
 
 
 //Send Email
+//->middleware('throttle:5,1') This will limit requests to 5 per minute per IP address.
 Route::resource('/send_email', SendEmailController::class)->only([
     'store'
-]);
+])->middleware('throttle:5,1');
 Route::get('/thank_you', [HomeController::class, 'thank_you']);
 
 

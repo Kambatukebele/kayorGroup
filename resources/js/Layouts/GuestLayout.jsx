@@ -24,14 +24,23 @@ export default function GuestLayout({ children }) {
                             isOpen ? "w-full" : "w-0"
                         } bg-gray-50 absolute top-14 right-0 duration-700 h-[calc(100vh-3.5rem)] overflow-hidden flex flex-col justify-start items-center gap-8  py-5 lg:bg-transparent lg:static lg:gap-0 lg:flex-row lg:py-0 lg:w-[25rem] lg:h-fit lg:justify-between`}
                     >
-                        <li className="text-base text-gray-800 font-medium font-poppins">
+                        {/* <li className="text-base text-gray-800 font-medium font-poppins">
                             <Link>Home</Link>
+                        </li> */}
+                        <li className="text-base text-gray-800 font-medium font-poppins">
+                            <Link href="#services">Services</Link>
                         </li>
                         <li className="text-base text-gray-800 font-medium font-poppins">
-                            <Link>Services</Link>
+                            <Link href="#contactus">Contact us</Link>
+                            {/* <Button btnText="Contact Us" /> */}
                         </li>
-                        <li className="">
-                            <Button btnText="Contact Us" />
+                        <li className="text-base text-gray-800 font-medium font-poppins">
+                            <Link href="#faqs">Faq</Link>
+                            {/* <Button btnText="Contact Us" /> */}
+                        </li>
+                        <li className="text-base text-gray-800 font-medium font-poppins">
+                            <Link href="#testimonial">Testimonials</Link>
+                            {/* <Button btnText="Contact Us" /> */}
                         </li>
                         <li className="absolute top-5 left-3 w-3 h-3 block border rounded-full shadow-lg bg-gradient-to-b from-blue-700 lg:hidden"></li>
                         <li className="absolute bottom-10 right-3 w-10 h-10 block border rounded-full shadow-xl bg-gradient-to-b from-purple-700 lg:hidden"></li>

@@ -23,7 +23,7 @@ const Hero = () => {
                             social media management, all aimed at enhancing your
                             visibility in Africa and the African Diaspora.
                         </p>
-                        <Button btnText="Contact Us" />
+                        <Button href="#contactus" btnText="Contact Us" />
                     </div>
                     <div className="relative w-[280px] h-[400px] mx-auto sm:w-[571px] sm:h-[722px]">
                         <img
