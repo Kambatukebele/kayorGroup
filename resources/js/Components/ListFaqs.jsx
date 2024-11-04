@@ -44,7 +44,7 @@ const ListFaqs = ({ id, question, response }) => {
                             isOpenFaqs ? "block mt-0" : "hidden"
                         } h-fit duration-700 ease-in-out`}
                     >
-                        <p className="text-base font-light text-gray-950">
+                        <p className="text-base font-light text-gray-950 whitespace-pre-line">
                             {response}
                         </p>
                     </div>

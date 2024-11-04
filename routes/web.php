@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SendEmailController;
+use App\Notifications\SendContactForm;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,12 +16,19 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-Route::get('/', function (){
-    return inertia('Home');
-});
-Route::get('/terms', function (){
-    return inertia('Terms');
-});
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/privacy_policy', [HomeController::class, 'privacy']);
+Route::get('/cookie_policy', [HomeController::class, 'cookie']);
+// Route::post('/send_email', [HomeController::class, 'sendEmail']);
+
+
+//Send Email
+Route::resource('/send_email', SendEmailController::class)->only([
+    'store'
+]);
+Route::get('/thank_you', [HomeController::class, 'thank_you']);
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -15,7 +15,7 @@ export default function GuestLayout({ children }) {
     };
     return (
         <>
-            <header className="w-full h-fit bg-white px-4 relative shadow-sm">
+            <header className="w-full h-fit bg-white px-4 relative shadow-sm z-10">
                 <div className="container h-14 bg-white flex justify-between items-center lg:h-20">
                     <Logo />
 
@@ -70,15 +70,15 @@ export default function GuestLayout({ children }) {
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
                                         <a
-                                            href="https://github.com/themesberg/flowbite"
-                                            className="hover:underline "
+                                            href="https://www.linkedin.com/in/kayor-group/"
+                                            className="hover:underline"
                                         >
                                             Linkedin
                                         </a>
                                     </li>
                                     <li className="mb-4">
                                         <a
-                                            href="https://discord.gg/4eeurUVvTy"
+                                            href="https://www.facebook.com/kayorgroup"
                                             className="hover:underline"
                                         >
                                             Facebook
@@ -86,7 +86,7 @@ export default function GuestLayout({ children }) {
                                     </li>
                                     <li>
                                         <a
-                                            href="https://discord.gg/4eeurUVvTy"
+                                            href="https://www.instagram.com/kayorgroup/?hl=en"
                                             className="hover:underline"
                                         >
                                             Instagram
@@ -98,14 +98,20 @@ export default function GuestLayout({ children }) {
                                 <HFive title="Legal" />
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">
+                                        <Link
+                                            href="/privacy_policy"
+                                            className="hover:underline"
+                                        >
                                             Privacy Policy
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="#" className="hover:underline">
-                                            Terms &amp; Conditions
-                                        </a>
+                                        <Link
+                                            href="/cookie_policy"
+                                            className="hover:underline"
+                                        >
+                                            Cookie Policy
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

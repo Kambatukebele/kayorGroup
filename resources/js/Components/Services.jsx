@@ -2,6 +2,7 @@ import serviceImgOne from "../../../public/images/serviceImgOne.jpg";
 import serviceImgTwo from "../../../public/images/serviceImgTwo.jpg";
 import serviceImgThree from "../../../public/images/serviceImgThree.jpg";
 import HTwo from "./HTwo";
+import Underline from "./Underline";
 
 const Services = () => {
     // Dummy data to display services information
@@ -10,18 +11,27 @@ const Services = () => {
             id: 1,
             image: serviceImgOne,
             alt: "Man sitting with books",
-            title: "English Language Editing",
+            title: "English Language Enhancement",
             description:
-                "We will correct errors in spelling, grammar, and punctuation and will polish English language usage.We will also rephrase sentences that sound unnatural, use subject expertise to point out sentences that are confusing, and make your style sound more professional.We will correct fundamental language errors and rephrase or point out awkward and confusing sentences.We will focus on the finer points of style and on improving the phrasing.",
+                "Our comprehensive editing service refines your writing to ensure clarity and professionalism. We meticulously correct spelling, grammar, and punctuation errors while enhancing overall English language usage. Our expert editors will:",
+            lists: [
+                "Rephrase awkward sentences for natural flow",
+                "Clarify confusing passages using subject-specific knowledge",
+                "Elevate your writing style to a more polished, professional tone",
+                "Address fundamental language issues",
+                "Fine-tune stylistic elements to improve overall phrasing",
+            ],
+            extraText:
+                "We focus on both the essential aspects of language correction and the nuanced elements of style, resulting in a significantly improved and more impactful manuscript.",
             reverse: false,
         },
         {
             id: 2,
             image: serviceImgTwo,
             alt: "Man sitting with books",
-            title: "Book Launch Campaign ",
+            title: "Book Launch Campaign",
             description:
-                "We will create media assets for your book campaign focusing on the following: Interviews Marketing Social Media ",
+                "We will develop media assets for your book launch campaign with a focus on the following areas: interviews, marketing, and social media.",
             reverse: true,
         },
         {
@@ -30,18 +40,27 @@ const Services = () => {
             alt: "Man sitting with books",
             title: "Proofreading",
             description:
-                "We will edit and proofread your academic file(s) for grammar, spelling, formatting, word choice, sentence structure, style, consistency, and more.track their changes  and email you the revised file(s) before your deadline work confidentially  with a 100% satisfaction guarantee",
+                "We will meticulously edit and proofread your academic documents for grammar, spelling, formatting, word choice, sentence structure, style, consistency, and more. We will track all changes and send you the revised documents via email before your deadline. Our work is conducted with complete confidentiality, and we offer a 100% satisfaction guarantee.",
             reverse: false,
         },
     ];
     return (
         <>
-            <section className="bg-white dark:bg-gray-900">
-                <div className="px-4 text-center mx-auto max-w-screen-xl">
+            <section className="bg-white py-14 relative">
+                <div className="px-4 flex flex-col justify-center items-center mx-auto max-w-screen-xl">
                     <HTwo title="Services" />
+                    <Underline />
                 </div>
                 {servicesData.map((service) => {
-                    const { id, image, title, description, reverse } = service;
+                    const {
+                        id,
+                        image,
+                        title,
+                        description,
+                        reverse,
+                        lists,
+                        extraText,
+                    } = service;
                     return (
                         <div
                             key={id}
@@ -58,13 +77,33 @@ const Services = () => {
                                 <h3 class="mb-4 text-2xl tracking-tight font-extrabold text-gray-900 lg:text-3xl">
                                     {title}
                                 </h3>
-                                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+                                <p class="mb-2 font-light text-gray-500 md:text-lg dark:text-gray-400">
                                     {description}
                                 </p>
+                                {lists && (
+                                    <ul className="ml-10">
+                                        {lists.map((list, index) => {
+                                            return (
+                                                <li
+                                                    key={index}
+                                                    className="mb-2 list-disc indent-1 pb-1 font-light text-gray-500"
+                                                >
+                                                    {list}
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                )}
+                                {extraText && (
+                                    <p className="font-light text-gray-500 md:text-lg dark:text-gray-400">
+                                        {extraText}
+                                    </p>
+                                )}
                             </div>
                         </div>
                     );
                 })}
+                <div className="w-44 h-44 bg-blue-600 rounded-full absolute top-44 -left-32"></div>
             </section>
         </>
     );

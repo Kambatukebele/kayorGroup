@@ -16,12 +16,12 @@ const Hero = () => {
                             and Beyond
                         </h1>
                         <p className="text-gray-800 text-center">
-                            At Kayor Group, we specialize in creating impactful
-                            media assets tailored for authors and writers. Our
-                            include interviews, advertisements, copywriting,
-                            manuscript editing, and social media management, all
-                            designed to elevate your presence in Africa and the
-                            Diaspora.
+                            At Kayor Group, we focus on developing powerful
+                            media assets specifically designed for authors and
+                            writers. Our services encompass interviews,
+                            advertising, copywriting, manuscript editing, and
+                            social media management, all aimed at enhancing your
+                            visibility in Africa and the African Diaspora.
                         </p>
                         <Button btnText="Contact Us" />
                     </div>

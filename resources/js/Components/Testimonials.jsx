@@ -1,16 +1,15 @@
 import quote from "../../../public/svgs/quote.svg";
 import HTwo from "./HTwo";
+import Underline from "./Underline";
 
 const Testimonials = () => {
     return (
         <>
-            <section className="w-full bg-gray-50">
+            <section className="w-full bg-blue-50">
                 <div className="container py-10 px-4 sm:px-8">
-                    <div className="mb-20 text-center">
+                    <div className="mb-10 flex flex-col justify-center items-center">
                         <HTwo title="Testimonial" />
-                        <p className="text-base text-center font-normal text-gray-600 my-3">
-                            Have questions? We're here to help.
-                        </p>
+                        <Underline />
                     </div>
                     <div>
                         <figure className="max-w-screen-md mx-auto text-center">
