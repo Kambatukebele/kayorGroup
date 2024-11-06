@@ -35,7 +35,7 @@ class SendEmailController extends Controller
             'name' => "required|string|max:100",
             'email'=> "required|email",
             'message' => "required|string|max:255",
-            'checkbox' => 'required'
+            'checkbox' => 'required|accepted'
         ]);
 
         //Send the email notification

@@ -4,11 +4,13 @@ import Services from "@/Components/Services";
 import ContactUs from "@/Components/ContactUs";
 import Faqs from "@/Components/Faqs";
 import Testimonials from "@/Components/Testimonials";
+import { Head } from "@inertiajs/react";
 
 const Home = () => {
     return (
         <>
             <GuestLayout>
+                <Head title="Home" />
                 {/* Hero section */}
                 <Hero />
                 {/* Services section */}

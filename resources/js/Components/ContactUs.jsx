@@ -1,4 +1,3 @@
-import Button from "@/Components/Button";
 import { Link, useForm } from "@inertiajs/react";
 import HTwo from "./HTwo";
 import Underline from "./Underline";
@@ -14,16 +13,14 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("submitted");
-
         post(route("send_email.store"), {
             onError: (error) => {
-                alert("There is an error");
+                alert(
+                    `"We encountered a problem with your submission. Please ensure all required fields are filled correctly and try again."`
+                );
             },
         });
     };
-    console.log(errors);
-
     return (
         <>
             <section className="w-full bg-gray-50" id="contactus">

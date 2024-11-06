@@ -1,10 +1,12 @@
 import GuestLayout from "@/Layouts/GuestLayout";
 import HFive from "@/Components/HFive";
 import HTwo from "@/Components/HTwo";
+import { Head } from "@inertiajs/react";
 
 const CookiePolicy = () => {
     return (
         <GuestLayout>
+            <Head title="Cookie" />
             <section className="w-full my-14">
                 <div className="container px-4">
                     <div className="lg:w-[700px] lg:mx-auto">

@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title inertia>{{ config('app.name', 'KayorGroup') }}</title>
+        <meta name="description" content="At Kayor Group, we focus on developing powerful media assets specifically designed for authors and writers. Our services encompass interviews, advertising, copywriting, manuscript editing, and social media management, all aimed at enhancing your visibility in Africa and the African Diaspora.">
+        <meta name="keywords" content="copy editing, proofreading, copy write">
+        <link rel="canonical" href="https://kayorgroup.com/">
+
 
         <!-- Font open sans, lora, poppins, montserrat, merriweather, roboto -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

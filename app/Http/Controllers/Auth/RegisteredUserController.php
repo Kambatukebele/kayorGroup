@@ -18,9 +18,15 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): Response
+    // public function create(): Response
+    // {
+    //
+    //     // return Inertia::render('Auth/Register');
+    // }
+     public function create(): Response
     {
-        return Inertia::render('Auth/Register');
+        return abort(404, 'Page not found');
+        // return Inertia::render('Auth/Register');
     }
 
     /**
@@ -30,6 +36,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        return abort(404, 'Page not found');
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,

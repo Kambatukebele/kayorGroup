@@ -1,10 +1,11 @@
 import HFive from "@/Components/HFive";
 import HTwo from "@/Components/HTwo";
 import GuestLayout from "@/Layouts/GuestLayout";
-
+import { Head } from "@inertiajs/react";
 const PrivacyPolicy = () => {
     return (
         <GuestLayout>
+            <Head title="Privacy" />
             <section className="w-full my-14">
                 <div className="container px-4">
                     <div className="lg:w-[700px] lg:mx-auto">

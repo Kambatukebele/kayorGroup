@@ -3,6 +3,7 @@ import serviceImgTwo from "../../../public/images/serviceImgTwo.jpg";
 import serviceImgThree from "../../../public/images/serviceImgThree.jpg";
 import HTwo from "./HTwo";
 import Underline from "./Underline";
+import { useInView } from "@/useInview";
 
 const Services = () => {
     // Dummy data to display services information
@@ -61,19 +62,30 @@ const Services = () => {
                         lists,
                         extraText,
                     } = service;
+                    // Use the custom hook to get ref and isInView state
+                    const [ref, isInView] = useInView();
                     return (
                         <div
                             key={id}
+                            ref={ref}
                             className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6"
                         >
                             <img
                                 className={`rounded-lg w-full ${
                                     reverse ? "order-1" : ""
-                                } order-1"`}
+                                } order-1" ${
+                                    isInView
+                                        ? "animate-fade-right"
+                                        : "opacity-0"
+                                }`}
                                 src={image}
                                 alt="dashboard image"
                             />
-                            <div className="mt-4 md:mt-0">
+                            <div
+                                className={`mt-4 md:mt-0 ${
+                                    isInView ? "animate-fade-left" : "opacity-0"
+                                }`}
+                            >
                                 <h3 class="mb-4 text-2xl tracking-tight font-extrabold text-gray-900 lg:text-3xl">
                                     {title}
                                 </h3>

@@ -23,21 +23,6 @@ class HomeController extends Controller
         return inertia("CookiePolicy");
     }
 
-    // public function sendEmail(Request $request){
-    //     $data = $request->validate([
-    //         'name' => "required|string|max:100",
-    //         'email'=> "required|email",
-    //         'message' => "required|string|max:255",
-    //         'checkbox' => 'required'
-    //     ]);
-
-    //     // Mail::to('kayor+@inbox.mailtrap.io')->send(new ContactFormMail($data));
-
-    //     // return response()->json(['message' => 'Your message has been sent!'], 200);
-    //     //\Notification::route('mail', 'demo@mailo.com')->notify(new SendContactForm($data));
-    //     // return redirect()
-    // }
-
     public function thank_you (){
         if (!session('form_submitted')) {
             return redirect('/');
