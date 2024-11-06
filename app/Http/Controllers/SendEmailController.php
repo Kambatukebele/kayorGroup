@@ -39,7 +39,7 @@ class SendEmailController extends Controller
         ]);
 
         //Send the email notification
-        Notification::route('mail', 'demo@mailto.com')->notify(new SendContactForm($data));
+        Notification::route('mail', 'webizycode@gmail.com')->notify(new SendContactForm($data));
         //Set session variable to indicate successful form submission
         session(['form_submitted' => true]);
         return redirect('thank_you');
